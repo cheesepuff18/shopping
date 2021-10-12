@@ -1,0 +1,16 @@
+.searchBar {
+    width: 350px;
+    margin-left: 20px;
+}
+
+.navRow{
+    width: 100%;
+    display: flow-root;
+    padding: 20px 0px 20px 20px;
+}
+
+.option{
+    height: 50px;
+    padding: 0px 10px 0px 10px;
+    margin: 0 auto;
+}
