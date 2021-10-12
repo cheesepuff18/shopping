@@ -46,9 +46,31 @@ export default class Layout extends React.Component<LayoutProps, LayoutState> {
         };
     }
 
+    // TODO: Switch cart functionality over to Redux and move these calls to another file
     addProductToCart(product : ProductProp){
         if(this.state.cartProducts.filter(x => x.productId === product.productId).length === 0){
             this.state.cartProducts.push(new CartProduct(product));
+        }
+    }
+    
+    increaseProductInCart(product : ProductProp){
+        var productInCart = this.state.cartProducts.find(x => x.productId === product.productId);
+        if(productInCart !== undefined){
+            productInCart.quantity++;
+        }
+    }
+    
+    decreaseProductInCart(product : ProductProp){
+        var productInCart = this.state.cartProducts.find(x => x.productId === product.productId);
+        if(productInCart !== undefined){
+            productInCart.quantity--;
+        }
+    }
+    
+    removeProductFromCart(product : ProductProp){
+        var productInCart = this.state.cartProducts.find(x => x.productId === product.productId);
+        if(productInCart !== undefined){
+            productInCart.quantity = 0;
         }
     }
 
